@@ -19,7 +19,6 @@ app.post("/upload", function (req, res) {
     return res.status(400).send("No files were uploaded.");
   }
 
-<<<<<<< HEAD
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   sampleFile = req.files.userfile;
   uploadPath = __dirname + "/upload/" + sampleFile.name;
@@ -30,24 +29,6 @@ app.post("/upload", function (req, res) {
 
     res.json("File uploaded!");
   });
-=======
-  sampleFile = req.files.userfile; // form's name parameter
-  for (let index = 0; index < sampleFile.length; index++) {
-    
-    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-    uploadPath = __dirname + "/upload/" + sampleFile[index].name;
-  
-    // console.log(req.files.userfile);
-    // Use the mv() method to place the file somewhere on your server
-    sampleFile[index].mv(uploadPath, function (err) {
-      if (err) return res.status(500).send(err);
-  
-    });
-    
-  }
-  res.send("File uploaded!");
-  
->>>>>>> d2b507c0f5b5b5fd796f79a73415559342e9e5ee
 });
 
 // serve static
